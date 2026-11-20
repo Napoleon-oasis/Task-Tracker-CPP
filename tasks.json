@@ -1,18 +1,11 @@
 {
-    "completed": [],
+    "completed": [
+        {
+            "deadline": "06-12-2026",
+            "task": "Angkor Marathon"
+        }
+    ],
     "in_progress": [
-        {
-            "deadline": "08-12-2026",
-            "task": "Foundation of Computing"
-        },
-        {
-            "deadline": "08-12-2026",
-            "task": "CSI Final Exam"
-        },
-        {
-            "deadline": "09-12-2026",
-            "task": "Math for Computing"
-        },
         {
             "deadline": "30-11-2026",
             "task": "Math for Computing Quiz"
@@ -20,6 +13,18 @@
         {
             "deadline": "01-12-2026",
             "task": "Foudation of Computing Quiz"
+        },
+        {
+            "deadline": "08-12-2026",
+            "task": "CSI Final Exam"
+        },
+        {
+            "deadline": "08-12-2026",
+            "task": "Foundation of Computing"
+        },
+        {
+            "deadline": "09-12-2026",
+            "task": "Math for Computing"
         }
     ]
 }
