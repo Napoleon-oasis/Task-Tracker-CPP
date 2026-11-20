@@ -34,6 +34,33 @@ bool validDate(string date){
     return true;
 }
 
+int convertDate(string date){
+    int day = stoi(date.substr(0, 2));
+    int month = stoi(date.substr(3, 2));
+    int year = stoi(date.substr(6, 4));
+    return year * 10000 + month * 100 + day;
+}
+
+void sortTasks(){
+    for(int i = 0; i < deadlines.size(); i++){
+        for(int j = i + 1; j < deadlines.size(); j++){
+            if(convertDate(deadlines[i]) > convertDate(deadlines[j])){
+                swap(deadlines[i], deadlines[j]);
+                swap(tasks[i], tasks[j]);
+            }
+        }
+    }
+
+    for(int i = 0; i < doneDeadlines.size(); i++){
+        for(int j = i + 1; j < doneDeadlines.size(); j++){
+            if(convertDate(doneDeadlines[i]) > convertDate(doneDeadlines[j])){
+                swap(doneDeadlines[i], doneDeadlines[j]);
+                swap(doneTasks[i], doneTasks[j]);
+            }
+        }
+    }
+}
+
 void saveTasks(){
     json data;
 
@@ -114,6 +141,7 @@ void addTask(){
     deadlines.push_back(deadline);
     cout << "Task Added Successfully!\n";
 
+    sortTasks();
     saveTasks();
 }
 
@@ -156,6 +184,8 @@ void editDeadline(string task){
             cout << "Deadline Changed Successfully!\n";
         }
     }
+
+    sortTasks();
     saveTasks();
 }
 
@@ -249,6 +279,9 @@ void markTask(){
         }
     }
     cout << "Task Not Found!\n";
+
+    sortTasks();
+    saveTasks();
 }
 
 void listTasks(){
